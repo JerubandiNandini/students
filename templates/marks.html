@@ -1,0 +1,86 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <style>
+            body{
+              background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNsl918HASkVtEnsb15uuoRue7Lbu8j_BILQ&usqp=CAU');
+              background-repeat: no-repeat;
+              background-attachment: fixed;
+              background-size: cover; 
+            }
+            table, th, td{
+                border: 2px solid black;
+             }
+          
+          </style>
+        <script>
+            function getGrade(){
+
+                var grade = "";  
+                var result="";  
+                var CNMarks = document.getElementById('txtCN').value;
+                var OSMarks = document.getElementById('txtOS').value;
+                var WTMarks = document.getElementById('txtWT').value;
+                var SSMarks = document.getElementById('txtSS').value;
+                 var totalMarks = CNMarks - (- OSMarks) - (- WTMarks) - (- SSMarks);
+                var averageMarks = totalMarks / 4;                                    
+                switch(  
+                        (averageMarks > 60 && averageMarks <= 100) ? 1 : 
+                        (averageMarks > 50 && averageMarks < 60) ? 2 : 
+                        (averageMarks > 40 && averageMarks < 50) ? 3 : 0 
+                      )
+                        
+                        {
+                            case 1 :grade = "A";result="First Class";break;
+                            case 2 :grade = "B"; result="Second Class";break;
+                            case 3 :grade = "C"; result="Third Class";break;
+                            case 0 :grade = "D"; result="Fail";break;
+                        }  
+                document.getElementById('txtStudentName').value = document.getElementById('txtName').value;
+                document.getElementById('txtStudentDept').value = document.getElementById('txtDept').value;
+                document.getElementById('txtTotalMarks').value = totalMarks;
+                document.getElementById('txtAvgMarks').value = averageMarks;
+                document.getElementById('txtGrade').value = grade;
+                document.getElementById('txtResult').value = result;
+            }
+
+        </script>  
+    </head>
+    <body>        
+            <fieldset style="width:600px"
+                             align="center">
+                
+                <legend><b>Student Input Section:</b></legend>
+                <b>Name:</b><input type="text" id="txtName">   
+                <b>Department:</b><input type="text" id="txtDept"> <br/><br/>
+                <table border="1"
+                       align="center">
+                    <tr><td><b>CN</b></td><td><input type="text" id="txtCN"></td></tr>
+                    <tr><td><b>OS</b></td><td><input type="text" id="txtOS"></td></tr>
+                    <tr><td><b>WT</b></td><td><input type="text" id="txtWT"></td></tr>
+                    <tr><td><b>SS</b></td><td><input type="text" id="txtSS"></td></tr>             
+                </table><br/><br/>
+                <input type="button" value="Get Result" onclick="getGrade()">
+            </fieldset>
+            
+            <h2>Grade Sheet</h2>
+            
+            <table border="1">
+                <tr><td><b>Name</b></td><td><input type="text" id="txtStudentName" readonly></td></tr>
+                <tr><td><b>Department</b></td><td><input type="text" id="txtStudentDept" readonly></td></tr>
+                <tr><td><b>Total Marks</b></td><td><input type="text" id="txtTotalMarks" readonly></td></tr>
+                <tr><td><b>Average Marks</b></td><td><input type="text" id="txtAvgMarks" readonly></td></tr>
+                <tr><td><b>Grade</b></td><td><input type="text" id="txtGrade" readonly></td></tr>
+                <tr><td><b>Remarks</b></td><td><input type="text" id="txtResult" readonly></td></tr>
+            </table>
+            <a href="home"><input type="button" value=home></a>
+    </body>
+    
+</html>
+
+    
+    
+        
+            
+        
+       
